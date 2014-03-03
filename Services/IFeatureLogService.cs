@@ -28,6 +28,9 @@ namespace FeatureLoggerService.Services
         List<SemanticsModificationInfo> GetSemanticsModificationInfo(long modificationInfoId);
 
         [OperationContract]
+        String GetGeometryModificationInfo(long modificationInfoId);
+
+        [OperationContract]
         List<String> GetUsers();
         
         [OperationContract]
@@ -138,6 +141,12 @@ namespace FeatureLoggerService.Services
         {
             var semanticModifyInfos = _repositorySemanticsInfo.FindAll(x => x.Info.ID == modificationInfoId);
             return semanticModifyInfos.ToList();
+        }
+
+        public String GetGeometryModificationInfo(long modificationInfoId)
+        {
+            var geometryModificationInfo = _repositoryGeometryInfo.FindOne(x => x.Info.ID == modificationInfoId);
+            return geometryModificationInfo != null ? geometryModificationInfo.WKTGeometry : String.Empty;
         }
 
         public List<string> GetUsers()

@@ -37,6 +37,9 @@ namespace FeatureLoggerService.Entities
         public string FeatureClass { get; set; }
         [Required]
         [DataMember]
+        public string FeatureClassCaption { get; set; }
+        [Required]
+        [DataMember]
         public ModifyState State { get; set; }
         [DataMember]
         public virtual List<SemanticsModificationInfo> SemanticsInfo { get; set; }

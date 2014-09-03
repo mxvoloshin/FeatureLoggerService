@@ -16,6 +16,9 @@ namespace FeatureLoggerService.Entities
         public string Attribute { get; set; }
         [DataMember]
         [Required]
+        public string AttributeCaption { get; set; }
+        [DataMember]
+        [Required]
         public string Value { get; set; }
         
     }
